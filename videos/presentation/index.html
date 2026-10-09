@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Presentation Toumany Camara</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #14141a; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #14141a; font-family: system-ui, sans-serif; color: #fdfbf7; }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .photo { position: absolute; object-fit: cover; }
+      .mask { position: absolute; overflow: hidden; }
+      .rust { background: #c2410c; }
+      .orange { background: #f28a55; }
+      .abs { position: absolute; }
+
+      /* scene A */
+      #a-bar { left: 0; top: 0; width: 1010px; height: 1080px; }
+      #a-photo-wrap { left: 1000px; top: 0; width: 920px; height: 1080px; }
+      #a-photo { left: 0; top: 40px; width: 1000px; height: 1000px; object-position: 50% 0; }
+      #a-hello { left: 120px; top: 270px; font-size: 52px; font-weight: 700; color: #fdfbf7; letter-spacing: 0.04em; }
+      #a-n1w { left: 120px; top: 340px; width: 880px; height: 190px; }
+      #a-n2w { left: 120px; top: 520px; width: 880px; height: 190px; }
+      .nm { position: absolute; left: 0; top: 0; font-size: 170px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; }
+      #a-role { left: 120px; top: 760px; font-size: 44px; font-weight: 700; }
+      #a-line { left: 120px; top: 730px; width: 240px; height: 8px; background: #fdfbf7; }
+
+      /* scene B */
+      #b-photo-wrap { left: 120px; top: 120px; width: 760px; height: 840px; border-radius: 28px; }
+      #b-photo { left: -120px; top: 0; width: 1000px; height: 840px; object-position: 50% 20%; }
+      #b-frame { left: 150px; top: 150px; width: 760px; height: 840px; border-radius: 28px; border: 6px solid #f28a55; }
+      #b-title { left: 1000px; top: 150px; font-size: 40px; font-weight: 800; letter-spacing: 0.4em; color: #f28a55; }
+      .item { position: absolute; left: 1000px; width: 900px; font-size: 54px; white-space: nowrap; font-weight: 800; }
+      .item small { display: block; font-size: 32px; font-weight: 500; color: #c9cfd9; margin-top: 6px; }
+      .dot { position: absolute; left: 960px; width: 18px; height: 18px; border-radius: 9px; background: #f28a55; }
+
+      /* scene C */
+      #c-l1w { left: 0; top: 220px; width: 1920px; height: 260px; text-align: center; }
+      #c-l2w { left: 0; top: 440px; width: 1920px; height: 260px; text-align: center; }
+      .cl { position: absolute; left: 0; top: 0; width: 1920px; text-align: center; font-size: 220px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.15; }
+      #c-contact { left: 0; top: 780px; width: 1920px; text-align: center; font-size: 50px; font-weight: 700; line-height: 1.6; }
+      #c-contact span { color: #f28a55; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="15" data-width="1920" data-height="1080">
+
+      <div id="sa" class="clip" data-start="0" data-duration="4.6" data-track-index="0">
+        <div id="a-bar" class="abs rust"></div>
+        <div id="a-photo-wrap" class="mask"><img id="a-photo" class="photo" src="assets/photo-portrait.png" alt="" /></div>
+        <div id="a-hello" class="abs">Bonjour, je suis</div>
+        <div id="a-n1w" class="mask"><div id="a-n1" class="nm">Toumany</div></div>
+        <div id="a-n2w" class="mask"><div id="a-n2" class="nm" style="color:#14141a">Camara</div></div>
+        <div id="a-line" class="abs"></div>
+        <div id="a-role" class="abs">Développeur Web &amp; Designer UI/UX</div>
+      </div>
+
+      <div id="sb" class="clip" data-start="4.6" data-duration="5.4" data-track-index="1">
+        <div id="b-frame" class="abs"></div>
+        <div id="b-photo-wrap" class="mask"><img id="b-photo" class="photo" src="assets/photo-poignee.png" alt="" /></div>
+        <div id="b-title" class="abs">CE QUE JE FAIS</div>
+        <div class="dot" id="d1" style="top:262px"></div><div class="item" id="i1" style="top:230px">Sites web sur-mesure<small>Frontend &amp; Backend</small></div>
+        <div class="dot" id="d2" style="top:442px"></div><div class="item" id="i2" style="top:410px">WordPress &amp; E-commerce<small>Thèmes sur-mesure, boutiques en ligne</small></div>
+        <div class="dot" id="d3" style="top:622px"></div><div class="item" id="i3" style="top:590px">Design UI/UX &amp; Figma<small>Maquettes et prototypes</small></div>
+        <div class="dot" id="d4" style="top:802px"></div><div class="item" id="i4" style="top:770px">Étudiant en Génie Logiciel<small>École 221, Dakar</small></div>
+      </div>
+
+      <div id="sc" class="clip" data-start="10" data-duration="5" data-track-index="2">
+        <div id="c-panel" class="abs rust" style="left:0;top:0;width:1920px;height:1080px"></div>
+        <div id="c-l1w" class="mask"><div id="c-l1" class="cl">Travaillons</div></div>
+        <div id="c-l2w" class="mask"><div id="c-l2" class="cl" style="color:#14141a">ensemble</div></div>
+        <div id="c-contact" class="abs">toumanycamara1214@gmail.com<br /><span style="color:#14141a">+221 78 327 55 19</span> · github.com/toumanycamara</div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // A
+      tl.fromTo("#a-bar", { x: -1010 }, { x: 0, duration: 0.6, ease: "expo.out" }, 0.1);
+      tl.fromTo("#a-photo", { x: 300, opacity: 0 }, { x: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, 0.3);
+      tl.fromTo("#a-hello", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.6);
+      tl.fromTo("#a-n1", { y: 200 }, { y: 0, duration: 0.7, ease: "expo.out" }, 0.8);
+      tl.fromTo("#a-n2", { y: 200 }, { y: 0, duration: 0.7, ease: "expo.out" }, 1.0);
+      tl.fromTo("#a-line", { x: -300 }, { x: 0, duration: 0.6, ease: "expo.out" }, 1.5);
+      tl.fromTo("#a-role", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }, 1.7);
+      tl.to("#sa", { opacity: 0, duration: 0.3 }, 4.3);
+
+      // B
+      tl.fromTo("#b-photo-wrap", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: "expo.out" }, 4.7);
+      tl.fromTo("#b-frame", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 5.0);
+      tl.fromTo("#b-title", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 5.0);
+      ["i1","i2","i3","i4"].forEach((id, k) => {
+        const t = 5.3 + k * 0.7;
+        tl.fromTo("#" + id, { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, t);
+        tl.fromTo("#d" + (k + 1), { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, t);
+      });
+      tl.to("#sb", { opacity: 0, duration: 0.3 }, 9.7);
+
+      // C
+      tl.fromTo("#c-panel", { x: -1920 }, { x: 0, duration: 0.6, ease: "expo.out" }, 10.0);
+      tl.fromTo("#c-l1", { y: 280 }, { y: 0, duration: 0.8, ease: "expo.out" }, 10.4);
+      tl.fromTo("#c-l2", { y: 280 }, { y: 0, duration: 0.8, ease: "expo.out" }, 10.6);
+      tl.fromTo("#c-contact", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 11.4);
+      tl.to("#sc", { opacity: 0, duration: 0.4 }, 14.6);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
