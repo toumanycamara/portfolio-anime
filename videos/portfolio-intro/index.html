@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Portfolio Intro</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #14141a; }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #14141a;
+        font-family: system-ui, sans-serif;
+        color: #fdfbf7;
+      }
+      .clip { position: absolute; inset: 0; }
+      .fill { position: absolute; inset: 0; }
+      #lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .panel {
+        position: absolute;
+        left: -300px; top: -200px;
+        width: 2600px; height: 1500px;
+        background: #c2410c;
+        transform-origin: 50% 50%;
+      }
+      .panel.b { background: #f28a55; }
+      .row { position: absolute; left: 0; width: 100%; display: flex; justify-content: center; overflow: hidden; }
+      .row span { display: inline-block; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+      #r1 { top: 240px; height: 310px; }
+      #r1 span { font-size: 280px; color: #fdfbf7; }
+      #r2 { top: 520px; height: 310px; }
+      #r2 span { font-size: 280px; color: #f28a55; }
+      #kicker {
+        position: absolute; top: 120px; left: 0; width: 100%;
+        text-align: center; font-size: 44px; font-weight: 800;
+        letter-spacing: 0.5em; color: #f28a55;
+      }
+      #tag {
+        position: absolute; top: 880px; left: 0; width: 100%;
+        text-align: center; font-size: 56px; font-weight: 700;
+        letter-spacing: 0.12em; color: #fdfbf7;
+      }
+      #bar {
+        position: absolute; top: 980px; left: 560px; width: 800px; height: 10px;
+        background: #3a3a44; border-radius: 5px; overflow: hidden;
+      }
+      #barfill { width: 800px; height: 10px; background: #f28a55; }
+      #big {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        display: flex; align-items: center; justify-content: center;
+      }
+      #big span { font-size: 420px; font-weight: 900; letter-spacing: -0.05em; color: #fdfbf7; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="10" data-width="1920" data-height="1080">
+      <div id="s1" class="clip" data-start="0" data-duration="2.4" data-track-index="0">
+        <div class="fill" id="bg1"></div>
+        <svg id="lines" viewBox="0 0 1920 1080"></svg>
+        <div id="big"><span id="bigtxt">MOTION</span></div>
+      </div>
+
+      <div id="s2" class="clip" data-start="2.4" data-duration="2.0" data-track-index="1">
+        <div class="panel" id="p1"></div>
+        <div class="panel b" id="p2"></div>
+      </div>
+
+      <div id="s3" class="clip" data-start="4.4" data-duration="5.6" data-track-index="2">
+        <div id="kicker">PORTFOLIO · MOTION DESIGN</div>
+        <div class="row" id="r1"><span id="t1">TOUMANY</span></div>
+        <div class="row" id="r2"><span id="t2">CAMARA</span></div>
+        <div id="tag">ANIMATION · ANIME · MOTION</div>
+        <div id="bar" data-layout-allow-overflow><div id="barfill" data-layout-allow-overflow></div></div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // speed lines (deterministic, seeded)
+      const svg = document.getElementById("lines");
+      let seed = 7;
+      const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+      const cx = 960, cy = 540;
+      const lines = [];
+      for (let i = 0; i < 70; i++) {
+        const a = rnd() * Math.PI * 2;
+        const r1 = 260 + rnd() * 260;
+        const r2 = r1 + 500 + rnd() * 900;
+        const l = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        l.setAttribute("x1", cx + Math.cos(a) * r1);
+        l.setAttribute("y1", cy + Math.sin(a) * r1);
+        l.setAttribute("x2", cx + Math.cos(a) * r2);
+        l.setAttribute("y2", cy + Math.sin(a) * r2);
+        l.setAttribute("stroke", i % 5 === 0 ? "#f28a55" : "#fdfbf7");
+        l.setAttribute("stroke-width", 2 + rnd() * 5);
+        l.setAttribute("stroke-linecap", "round");
+        svg.appendChild(l);
+        lines.push(l);
+      }
+
+      // Scene 1: speed lines + MOTION slam
+      tl.fromTo(lines, { opacity: 0, scale: 0.6, transformOrigin: "960px 540px" },
+        { opacity: 0.85, scale: 1.25, duration: 1.2, ease: "expo.out", stagger: 0.008 }, 0.1);
+      tl.fromTo("#bigtxt", { scale: 3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, 0.3);
+      tl.to("#bigtxt", { scale: 1.06, duration: 1.4, ease: "none" }, 0.8);
+      tl.to("#s1", { opacity: 0, duration: 0.2 }, 2.2);
+
+      // Scene 2: diagonal wipe panels + name
+      tl.fromTo("#p1", { x: -2800, rotation: -12 }, { x: 0, rotation: -12, duration: 0.7, ease: "expo.out" }, 2.4);
+      tl.fromTo("#p2", { x: -2800, rotation: -12 }, { x: 0, rotation: -12, duration: 0.7, ease: "expo.out" }, 2.55);
+      tl.to("#p2", { x: 2800, duration: 0.7, ease: "expo.in" }, 3.5);
+      tl.to("#p1", { x: 2800, duration: 0.7, ease: "expo.in" }, 3.65);
+
+      tl.fromTo("#kicker", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 4.4);
+      tl.fromTo("#t1", { y: 320 }, { y: 0, duration: 0.8, ease: "expo.out" }, 4.4);
+      tl.fromTo("#t2", { y: 320 }, { y: 0, duration: 0.8, ease: "expo.out" }, 4.6);
+      tl.fromTo("#tag", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, 5.4);
+      tl.fromTo("#barfill", { x: -800 }, { x: 0, duration: 2.6, ease: "power2.inOut" }, 5.8);
+      tl.to(["#t1", "#t2"], { scale: 1.04, duration: 3.5, ease: "none" }, 5.4);
+      tl.to("#s3", { opacity: 0, duration: 0.6, ease: "power2.in" }, 9.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
