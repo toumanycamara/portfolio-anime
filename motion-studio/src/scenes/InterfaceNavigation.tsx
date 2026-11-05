@@ -9,7 +9,7 @@ import { E, kf, prog } from '../lib/motion';
 type Role = { shots: [string, string]; cam: [number, number, number, number, number, number] };
 // cam = [x0,y0,z0, x1,y1,z1]
 const ROLES: Role[] = [
-  { shots: ['etu-edt', 'etu-dashboard'], cam: [720, 400, 1.15, 720, 600, 1.5] },
+  { shots: ['etu-edt', 'etu-dashboard'], cam: [720, 400, 1.15, 720, 600, 1.9] },
   { shots: ['for-dashboard', 'for-classes'], cam: [720, 360, 1.5, 720, 430, 1.1] },
   { shots: ['sec-classes', 'sec-formateurs'], cam: [720, 470, 1.3, 760, 420, 1.1] },
 ];
