@@ -5,6 +5,7 @@ import { Introduction } from './scenes/Introduction';
 import { DashboardReveal } from './scenes/DashboardReveal';
 import { InterfaceNavigation } from './scenes/InterfaceNavigation';
 import { FeatureShowcase } from './scenes/FeatureShowcase';
+import { ManagementShowcase } from './scenes/ManagementShowcase';
 import { UserExperience } from './scenes/UserExperience';
 import { ResponsiveShowcase } from './scenes/ResponsiveShowcase';
 import { ValueProps } from './scenes/ValueProps';
@@ -16,10 +17,11 @@ export const SCENES: { key: SceneKey; id: string; C: React.FC }[] = [
   { key: 'reveal', id: 'S2-DashboardReveal', C: DashboardReveal },
   { key: 'explore', id: 'S3-InterfaceNavigation', C: InterfaceNavigation },
   { key: 'features', id: 'S4-FeatureShowcase', C: FeatureShowcase },
-  { key: 'experience', id: 'S5-UserExperience', C: UserExperience },
-  { key: 'responsive', id: 'S6-ResponsiveShowcase', C: ResponsiveShowcase },
-  { key: 'value', id: 'S7-ValueProps', C: ValueProps },
-  { key: 'outro', id: 'S8-ClosingScene', C: ClosingScene },
+  { key: 'management', id: 'S5-ManagementShowcase', C: ManagementShowcase },
+  { key: 'experience', id: 'S6-UserExperience', C: UserExperience },
+  { key: 'responsive', id: 'S7-ResponsiveShowcase', C: ResponsiveShowcase },
+  { key: 'value', id: 'S8-ValueProps', C: ValueProps },
+  { key: 'outro', id: 'S9-ClosingScene', C: ClosingScene },
 ];
 
 export const Main: React.FC = () => (

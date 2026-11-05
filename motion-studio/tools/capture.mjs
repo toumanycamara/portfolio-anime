@@ -234,6 +234,80 @@ async function login(page, email, role) {
   await m.context().close();
 }
 
+
+// ================================================================= GESTION (ajouts / modifications) — en dernier pour ne pas modifier les captures précédentes
+{
+  console.log('Gestion');
+  const p = await newPage();
+  await login(p, 'demo.secretaire@ecole221.sn', 'secretaire');
+  const submitMark = async (key, form) => { await mark(p, key, `button[form=${form}]`); };
+
+  // --- Classe
+  await go(p, 'classeSecretaire.php'); await snap(p, 'gest-classe-liste');
+  await mark(p, 'g-classe-add', '#btnAdd');
+  await p.locator('#btnAdd').click(); await p.waitForTimeout(500); await snap(p, 'gest-classe-drawer');
+  await p.locator('#c-nom').fill('L3 Design & UX');
+  await p.locator('#c-filiere').selectOption({ label: 'Design & UX' }); await p.locator('#c-niveau').selectOption({ label: 'Licence 3' });
+  await p.locator('#c-salle').fill('C3'); await p.locator('#c-capacite').fill('28'); await p.waitForTimeout(200);
+  await submitMark('g-classe-save', 'classeForm'); await snap(p, 'gest-classe-rempli');
+  await Promise.all([p.waitForNavigation(), p.locator('button[form=classeForm]').click()]);
+  await p.waitForTimeout(450); await snap(p, 'gest-classe-ok');
+
+  // --- Niveau (tiroir vide)
+  await go(p, 'niveauSecretaire.php'); await snap(p, 'gest-niveau-liste');
+  await mark(p, 'g-niveau-add', '#btnAdd');
+  await p.locator('#btnAdd').click(); await p.waitForTimeout(500); await snap(p, 'gest-niveau-drawer');
+  await p.locator('#n-code').fill('M3'); await p.locator('#n-libelle').fill('Master 3'); await p.waitForTimeout(200);
+  await submitMark('g-niveau-save', 'niveauForm'); await snap(p, 'gest-niveau-rempli');
+  await Promise.all([p.waitForNavigation(), p.locator('button[form=niveauForm]').click()]);
+  await p.waitForTimeout(450); await snap(p, 'gest-niveau-ok');
+
+  // --- Formateur
+  await go(p, 'formateurSecretaire.php'); await snap(p, 'gest-formateur-liste');
+  await mark(p, 'g-formateur-add', '#btnAdd');
+  await p.locator('#btnAdd').click(); await p.waitForTimeout(500); await snap(p, 'gest-formateur-drawer');
+  await p.locator('#f-nom').fill('Ndao'); await p.locator('#f-prenom').fill('Coumba');
+  await p.locator('input[name=sexe][value=F]').check(); await p.locator('#f-spec').fill('UX Research & Design');
+  await p.locator('#f-email').fill('c.ndao@ecole221.sn'); await p.locator('#f-tel').fill('+221 77 640 12 33'); await p.waitForTimeout(200);
+  await snap(p, 'gest-formateur-rempli');
+  for (const lab of ["Design d'interface", 'Prototypage Figma']) await p.locator('#formateurForm label', { hasText: lab }).locator('input').check();
+  await p.locator('#formateurForm').evaluate((e) => { e.scrollTop = e.scrollHeight; }); await p.waitForTimeout(250);
+  await submitMark('g-formateur-save', 'formateurForm'); await snap(p, 'gest-formateur-matieres');
+  await Promise.all([p.waitForNavigation(), p.locator('button[form=formateurForm]').click()]);
+  await p.waitForTimeout(450); await snap(p, 'gest-formateur-ok');
+
+  // --- Filière
+  await go(p, 'filiereSecretaire.php'); await snap(p, 'gest-filiere-liste');
+  await mark(p, 'g-filiere-add', '#btnAdd');
+  await p.locator('#btnAdd').click(); await p.waitForTimeout(500); await snap(p, 'gest-filiere-drawer');
+  await p.locator('#f-code').fill('mkt'); await p.locator('#f-nom').fill('Marketing Digital'); await p.locator('#f-resp').fill('Mme Coumba Ndao');
+  await p.locator('#f-desc').fill('Stratégie digitale, contenus et analyse de performance.'); await p.waitForTimeout(200);
+  await submitMark('g-filiere-save', 'filiereForm'); await snap(p, 'gest-filiere-rempli');
+  await Promise.all([p.waitForNavigation(), p.locator('button[form=filiereForm]').click()]);
+  await p.waitForTimeout(450); await snap(p, 'gest-filiere-ok');
+
+  // --- Matière
+  await go(p, 'matiereSecretaire.php'); await snap(p, 'gest-matiere-liste');
+  await mark(p, 'g-matiere-add', '#btnAdd');
+  await p.locator('#btnAdd').click(); await p.waitForTimeout(500); await snap(p, 'gest-matiere-drawer');
+  await p.locator('#m-code').fill('UXR3'); await p.locator('#m-coef').fill('3'); await p.locator('#m-nom').fill('Recherche utilisateur');
+  await p.locator('#m-filiere').selectOption({ label: 'Design & UX' }); await p.locator('#m-niveau').selectOption({ label: 'Licence 3' }); await p.waitForTimeout(200);
+  await submitMark('g-matiere-save', 'matiereForm'); await snap(p, 'gest-matiere-rempli');
+  await Promise.all([p.waitForNavigation(), p.locator('button[form=matiereForm]').click()]);
+  await p.waitForTimeout(450); await snap(p, 'gest-matiere-ok');
+
+  // --- Modification d'un étudiant
+  await go(p, 'etudiantSecretaire.php'); await snap(p, 'gest-modif-liste');
+  const edit = p.locator('tbody tr[data-id] .js-edit').first();
+  await mark(p, 'g-modif-edit', edit);
+  await edit.click(); await p.waitForTimeout(500); await snap(p, 'gest-modif-drawer');
+  await p.locator('#e-tel').fill('+221 78 455 20 18'); await p.locator('#e-adresse').fill('Sicap Liberté 6'); await p.waitForTimeout(200);
+  await submitMark('g-modif-save', 'etudiantForm'); await snap(p, 'gest-modif-rempli');
+  await Promise.all([p.waitForNavigation(), p.locator('button[form=etudiantForm]').click()]);
+  await p.waitForTimeout(450); await snap(p, 'gest-modif-ok');
+  await p.context().close();
+}
+
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest, null, 2));
 await browser.close();
 console.log('Terminé :', Object.keys(manifest).length, 'cibles de clic enregistrées.');

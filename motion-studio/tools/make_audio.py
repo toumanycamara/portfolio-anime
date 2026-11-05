@@ -78,13 +78,13 @@ def pluck(f, d=0.35):
 A = lambda n: 440.0 * 2 ** ((n - 69) / 12)       # n = numéro MIDI
 prog = [(45, [57, 60, 64]), (41, [53, 57, 60]), (48, [55, 60, 64]), (43, [50, 55, 59])]   # Am, F, C, G
 scenes = TL["scenes"]
-def energy(t):               # 0 = vide, 1 = plein
-    if t < 4: return 0.0
-    if t < 8: return 0.35
-    if t < 18: return 0.7
-    if t < 63: return 1.0
-    if t < 75: return 0.55      # responsive : respiration
-    if t < 85: return 0.85
+def energy(t):               # 0 = vide, 1 = plein (déduit des scènes de timeline.json)
+    sc = TL["scenes"]
+    if t < sc["intro"][0] + 4: return 0.0
+    if t < sc["intro"][1]: return 0.35
+    if t < sc["reveal"][1]: return 0.7
+    if sc["responsive"][0] <= t < sc["responsive"][1]: return 0.55     # respiration
+    if sc["value"][0] <= t < sc["value"][1]: return 0.85
     return 1.0
 bar = BEAT * 4
 for b in range(int(DUR / bar) + 1):

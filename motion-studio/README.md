@@ -1,6 +1,6 @@
 # motion-studio — Publicité motion design « École 221 » (90 s)
 
-Film publicitaire de **90 secondes** (1920×1080, 30 fps, H.264 + AAC stéréo) construit avec **Remotion + React**.
+Film publicitaire de **2 minutes (125 s)** (1920×1080, 30 fps, H.264 + AAC stéréo) construit avec **Remotion + React**.
 Les écrans montrés sont de **vraies captures** de l'application PHP (voir « Captures authentiques »), jamais des maquettes.
 
 > Les fichiers PHP d'origine n'ont **pas** été modifiés. Ils sont copiés dans un dossier temporaire et exécutés
@@ -14,7 +14,7 @@ npm install
 
 npm run audio      # (re)génère la bande-son originale  -> public/audio/soundtrack.wav
 npm run studio     # prévisualisation interactive (une composition par scène + le film complet)
-npm run render     # export MP4 -> out/ecole221-publicite-90s.mp4
+npm run render     # export MP4 -> out/ecole221-publicite-125s.mp4
 npm run verify     # contrôle qualité (durée, résolution, fps, codecs, loudness, planche contact)
 ```
 
@@ -28,10 +28,11 @@ Aperçu d'images précises : `node tools/stills.mjs 120 900 2000` → `out/still
 | 2 | `DashboardReveal` | 8–18 s | Vraie connexion, révélation du tableau de bord, chiffres clés |
 | 3 | `InterfaceNavigation` | 18–33 s | Étudiant / Formateur / Secrétaire |
 | 4 | `FeatureShowcase` (+ `StatisticsAnimation`) | 33–48 s | Appel, saisie des notes, statistiques |
-| 5 | `UserExperience` | 48–63 s | De la saisie d'une note au résultat ; « Annuler » une suppression |
-| 6 | `ResponsiveShowcase` | 63–75 s | Ordinateur → smartphone (menu hamburger) |
-| 7 | `ValueProps` | 75–85 s | 4 bénéfices réels, chacun prouvé par un extrait d'écran |
-| 8 | `ClosingScene` | 85–90 s | Blason, nom, signature |
+| 5 | `ManagementShowcase` | 48–83 s | Ajouter un étudiant, une classe, un niveau, un formateur, une filière, une matière ; modifier |
+| 6 | `UserExperience` | 83–98 s | De la saisie d'une note au résultat ; « Annuler » une suppression |
+| 7 | `ResponsiveShowcase` | 98–110 s | Ordinateur → smartphone (menu hamburger) |
+| 8 | `ValueProps` | 110–120 s | 4 bénéfices réels, chacun prouvé par un extrait d'écran |
+| 9 | `ClosingScene` | 120–125 s | Blason, nom, signature |
 
 ## Où modifier quoi
 

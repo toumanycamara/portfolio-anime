@@ -3,7 +3,7 @@
  "bpm": 120,
  "width": 1920,
  "height": 1080,
- "duration": 90,
+ "duration": 125,
  "scenes": {
   "intro": [
    0,
@@ -21,21 +21,25 @@
    33,
    48
   ],
-  "experience": [
+  "management": [
    48,
-   63
+   83
+  ],
+  "experience": [
+   83,
+   98
   ],
   "responsive": [
-   63,
-   75
+   98,
+   110
   ],
   "value": [
-   75,
-   85
+   110,
+   120
   ],
   "outro": [
-   85,
-   90
+   120,
+   125
   ]
  },
  "cues": [
@@ -175,141 +179,329 @@
    "type": "whoosh"
   },
   {
-   "t": 48.0,
+   "t": 48,
    "type": "hit"
   },
   {
-   "t": 49.4,
+   "t": 49.0,
    "type": "click"
   },
   {
-   "t": 49.8,
+   "t": 49.5,
    "type": "type",
-   "dur": 1.2
+   "dur": 0.7
   },
   {
-   "t": 51.3,
+   "t": 50.73,
+   "type": "click"
+  },
+  {
+   "t": 50.9,
    "type": "error"
   },
   {
-   "t": 52.4,
+   "t": 51.2,
    "type": "type",
-   "dur": 0.5
+   "dur": 0.3
   },
   {
-   "t": 53.4,
+   "t": 52.0,
    "type": "click"
   },
   {
-   "t": 53.7,
+   "t": 52.35,
    "type": "success"
   },
   {
-   "t": 55.0,
+   "t": 52.55,
    "type": "whoosh"
   },
   {
-   "t": 55.3,
+   "t": 53,
    "type": "hit"
   },
   {
-   "t": 57.0,
-   "type": "pop"
-  },
-  {
-   "t": 58.5,
+   "t": 54.0,
    "type": "click"
   },
   {
-   "t": 59.7,
+   "t": 54.5,
+   "type": "type",
+   "dur": 0.8
+  },
+  {
+   "t": 56.6,
+   "type": "click"
+  },
+  {
+   "t": 56.8,
+   "type": "success"
+  },
+  {
+   "t": 57.55,
    "type": "whoosh"
   },
   {
-   "t": 60.0,
+   "t": 58,
    "type": "hit"
   },
   {
-   "t": 60.8,
+   "t": 59.0,
    "type": "click"
+  },
+  {
+   "t": 59.5,
+   "type": "type",
+   "dur": 0.8
   },
   {
    "t": 61.6,
    "type": "click"
   },
   {
-   "t": 61.9,
+   "t": 61.8,
    "type": "success"
   },
   {
-   "t": 62.5,
-   "type": "click"
-  },
-  {
-   "t": 62.6,
-   "type": "pop"
-  },
-  {
-   "t": 63.0,
-   "type": "hit"
-  },
-  {
-   "t": 63.2,
+   "t": 62.55,
    "type": "whoosh"
   },
   {
-   "t": 65.0,
-   "type": "pop"
+   "t": 63,
+   "type": "hit"
   },
   {
-   "t": 67.0,
+   "t": 64.0,
    "type": "click"
   },
   {
-   "t": 67.2,
-   "type": "pop"
+   "t": 64.5,
+   "type": "type",
+   "dur": 0.8
   },
   {
-   "t": 70.0,
+   "t": 66.6,
    "type": "click"
   },
   {
-   "t": 74.55,
+   "t": 66.8,
+   "type": "success"
+  },
+  {
+   "t": 67.55,
    "type": "whoosh"
   },
   {
-   "t": 75.0,
+   "t": 68,
    "type": "hit"
   },
   {
-   "t": 77.5,
-   "type": "hit"
+   "t": 69.0,
+   "type": "click"
   },
   {
-   "t": 80.0,
-   "type": "hit"
+   "t": 69.5,
+   "type": "type",
+   "dur": 0.8
   },
   {
-   "t": 82.5,
-   "type": "hit"
+   "t": 71.6,
+   "type": "click"
   },
   {
-   "t": 84.55,
+   "t": 71.8,
+   "type": "success"
+  },
+  {
+   "t": 72.55,
    "type": "whoosh"
   },
   {
-   "t": 85.0,
+   "t": 73,
    "type": "hit"
   },
   {
-   "t": 85.6,
+   "t": 74.0,
+   "type": "click"
+  },
+  {
+   "t": 74.5,
+   "type": "type",
+   "dur": 0.8
+  },
+  {
+   "t": 76.6,
+   "type": "click"
+  },
+  {
+   "t": 76.8,
+   "type": "success"
+  },
+  {
+   "t": 77.55,
+   "type": "whoosh"
+  },
+  {
+   "t": 78,
+   "type": "hit"
+  },
+  {
+   "t": 79.0,
+   "type": "click"
+  },
+  {
+   "t": 79.5,
+   "type": "type",
+   "dur": 0.8
+  },
+  {
+   "t": 81.6,
+   "type": "click"
+  },
+  {
+   "t": 81.8,
+   "type": "success"
+  },
+  {
+   "t": 82.55,
+   "type": "whoosh"
+  },
+  {
+   "t": 83.0,
+   "type": "hit"
+  },
+  {
+   "t": 84.4,
+   "type": "click"
+  },
+  {
+   "t": 84.8,
+   "type": "type",
+   "dur": 1.2
+  },
+  {
+   "t": 86.3,
+   "type": "error"
+  },
+  {
+   "t": 87.4,
+   "type": "type",
+   "dur": 0.5
+  },
+  {
+   "t": 88.4,
+   "type": "click"
+  },
+  {
+   "t": 88.7,
+   "type": "success"
+  },
+  {
+   "t": 90.0,
+   "type": "whoosh"
+  },
+  {
+   "t": 90.3,
+   "type": "hit"
+  },
+  {
+   "t": 92.0,
+   "type": "pop"
+  },
+  {
+   "t": 93.5,
+   "type": "click"
+  },
+  {
+   "t": 94.7,
+   "type": "whoosh"
+  },
+  {
+   "t": 95.0,
+   "type": "hit"
+  },
+  {
+   "t": 95.8,
+   "type": "click"
+  },
+  {
+   "t": 96.6,
+   "type": "click"
+  },
+  {
+   "t": 96.9,
+   "type": "success"
+  },
+  {
+   "t": 97.5,
+   "type": "click"
+  },
+  {
+   "t": 97.6,
+   "type": "pop"
+  },
+  {
+   "t": 98.0,
+   "type": "hit"
+  },
+  {
+   "t": 98.2,
+   "type": "whoosh"
+  },
+  {
+   "t": 100.0,
+   "type": "pop"
+  },
+  {
+   "t": 102.0,
+   "type": "click"
+  },
+  {
+   "t": 102.2,
+   "type": "pop"
+  },
+  {
+   "t": 105.0,
+   "type": "click"
+  },
+  {
+   "t": 109.55,
+   "type": "whoosh"
+  },
+  {
+   "t": 110.0,
+   "type": "hit"
+  },
+  {
+   "t": 112.5,
+   "type": "hit"
+  },
+  {
+   "t": 115.0,
+   "type": "hit"
+  },
+  {
+   "t": 117.5,
+   "type": "hit"
+  },
+  {
+   "t": 119.55,
+   "type": "whoosh"
+  },
+  {
+   "t": 120.0,
+   "type": "hit"
+  },
+  {
+   "t": 120.6,
    "type": "logo"
   },
   {
-   "t": 87.2,
+   "t": 122.2,
    "type": "pop"
   },
   {
-   "t": 88.0,
+   "t": 123.0,
    "type": "boom"
   }
  ]

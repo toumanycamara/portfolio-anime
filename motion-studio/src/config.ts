@@ -48,6 +48,15 @@ export const TEXT = {
     notes: { kicker: 'Notes', title: 'Des notes justes, dès la saisie.', note: 'Valeur invalide ? L’erreur apparaît avant l’enregistrement.' },
     stats: { kicker: 'Statistiques', title: 'L’école en chiffres.' },
   },
+  management: [
+    { kicker: 'Étudiants', title: 'Ajouter un étudiant.', note: 'Matricule généré, erreurs signalées avant l’envoi.' },
+    { kicker: 'Classes', title: 'Créer une classe.', note: 'Filière, niveau, salle et capacité.' },
+    { kicker: 'Niveaux', title: 'Ajouter un niveau.', note: 'Un code, un libellé, et c’est prêt.' },
+    { kicker: 'Formateurs', title: 'Ajouter un formateur.', note: 'Statut, spécialité et matières enseignées.' },
+    { kicker: 'Filières', title: 'Créer une filière.', note: 'Code, responsable et description.' },
+    { kicker: 'Matières', title: 'Ajouter une matière.', note: 'Coefficient, filière et niveau.' },
+    { kicker: 'Modifications', title: 'Modifier en un clic.', note: 'Même principe pour classes, filières, matières et formateurs.' },
+  ],
   experience: {
     kicker: 'De la saisie au résultat',
     s1: 'Le formateur saisit.',

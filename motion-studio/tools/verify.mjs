@@ -1,13 +1,13 @@
 // Contrôle qualité : durée, résolution, fréquence, codecs, audio, loudness + planche contact.
 //   node tools/verify.mjs [fichier.mp4]
 import { execSync } from 'node:child_process';
-const file = process.argv[2] || 'out/ecole221-publicite-90s.mp4';
+const file = process.argv[2] || 'out/ecole221-publicite-125s.mp4';
 const j = JSON.parse(execSync(`ffprobe -v error -show_streams -show_format -of json "${file}"`).toString());
 const v = j.streams.find((s) => s.codec_type === 'video'), a = j.streams.find((s) => s.codec_type === 'audio');
 const [n, d] = v.r_frame_rate.split('/').map(Number);
 const dur = parseFloat(j.format.duration);
 const checks = [
-  ['Durée = 90 s (±0,05)', Math.abs(dur - 90) <= 0.05, `${dur.toFixed(3)} s`],
+  ['Durée = 125 s (±0,05)', Math.abs(dur - 125) <= 0.05, `${dur.toFixed(3)} s`],
   ['Résolution 1920×1080', v.width === 1920 && v.height === 1080, `${v.width}×${v.height}`],
   ['Fréquence 30 fps', n / d === 30, `${n / d} fps`],
   ['Vidéo H.264', v.codec_name === 'h264', `${v.codec_name} ${v.pix_fmt}`],
