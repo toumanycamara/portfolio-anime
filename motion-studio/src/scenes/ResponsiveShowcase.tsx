@@ -11,8 +11,8 @@ import { E, kf, prog } from '../lib/motion';
 export const ResponsiveShowcase: React.FC = () => {
   const f = useCurrentFrame();
   const shrink = prog(f, 22, 74, E.inOut);
-  const w = 1300 + (780 - 1300) * shrink;
-  const left = 310 + (110 - 310) * shrink, top = 230 + (500 - 230) * shrink;
+  const w = 1500 + (780 - 1500) * shrink;
+  const left = 210 + (110 - 210) * shrink, top = 150 + (500 - 150) * shrink;
   const phoneIn = prog(f, 56, 100, E.out);
   const exit = prog(f, 340, 359, E.inOut);
   const cam = kf(f, [{ f: 0, x: 720, y: 405, z: 1.0 }, { f: 120, x: 850, y: 250, z: 1.2 }, { f: 200, x: 720, y: 405, z: 1.0 }]);

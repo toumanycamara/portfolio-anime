@@ -30,6 +30,11 @@ export const COLORS = {
   green: '#16a34a',
 };
 
+/** Atténuation des zooms de caméra : 1 = zooms d'origine, 0 = aucun zoom. Plus la valeur est basse, plus on voit l'écran en entier. */
+export const ZOOM_DAMP = 0.35;
+/** Largeur des fenêtres d'interface dans les scènes « showcase » (1520 px = presque plein écran). */
+export const WIN_W = 1520;
+
 export const FONT = "'Inter', system-ui, sans-serif";
 
 /** Tous les textes de la vidéo (français). */

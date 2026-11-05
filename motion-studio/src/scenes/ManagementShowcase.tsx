@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, Sequence, useCurrentFrame } from 'remotion';
-import { CAPTURES, SEC, TEXT } from '../config';
+import { CAPTURES, SEC, TEXT, WIN_W } from '../config';
 import { Backdrop } from '../components/Backdrop';
 import { UIWindow, State } from '../components/UIWindow';
 import { CursorKF } from '../components/Cursor';
@@ -49,7 +49,7 @@ const Seg: React.FC<{ i: number }> = ({ i }) => {
        { f: fSave, x: save.x, y: save.y, click: true }, { f: 140, x: 1000, y: 300 }];
   return (
     <ShowcaseFrame f={f} dur={DUR} kicker={T.kicker} title={T.title} note={T.note}>
-      <UIWindow f={f} width={1320} cam={cam} fade={9} states={c.states} cursor={cursor} />
+      <UIWindow f={f} width={WIN_W} cam={cam} fade={9} states={c.states} cursor={cursor} />
     </ShowcaseFrame>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, Sequence, useCurrentFrame } from 'remotion';
-import { CAPTURES, SEC, TEXT, at, scenes } from '../config';
+import { CAPTURES, SEC, TEXT, WIN_W, at, scenes } from '../config';
 import { Backdrop } from '../components/Backdrop';
 import { UIWindow } from '../components/UIWindow';
 import { ShowcaseFrame } from './shared';
@@ -21,7 +21,7 @@ const Saisie: React.FC = () => {
   ]);
   return (
     <ShowcaseFrame f={f} dur={A_DUR} kicker={TEXT.experience.kicker} title={TEXT.experience.s1}>
-      <UIWindow f={f} width={1320} cam={cam} fade={9}
+      <UIWindow f={f} width={WIN_W} cam={cam} fade={9}
         states={[
           { src: 'for-notes-vide', at: 0 }, { src: 'for-notes-saisies', at: 62 }, { src: 'for-notes-erreur', at: at(51.3 + O, S) },
           { src: 'for-notes-saisies', at: at(52.4 + O, S) + 6 }, { src: 'for-notes-enregistrees', at: fOk },
@@ -45,7 +45,7 @@ const Consultation: React.FC = () => {
   ]);
   return (
     <ShowcaseFrame f={f} dur={B_DUR} kicker={TEXT.experience.kicker} title={TEXT.experience.s2} note={TEXT.experience.note2}>
-      <UIWindow f={f} width={1320} cam={cam} fade={8} states={[{ src: 'etu-notes', at: 0 }]}
+      <UIWindow f={f} width={WIN_W} cam={cam} fade={8} states={[{ src: 'etu-notes', at: 0 }]}
         cursor={[{ f: 40, x: 1000, y: 640 }, { f: fClick, x: dl.x, y: dl.y, click: true }, { f: fClick + 22, x: 1250, y: 500 }]} />
     </ShowcaseFrame>
   );
@@ -61,7 +61,7 @@ const Annuler: React.FC = () => {
   ]);
   return (
     <ShowcaseFrame f={f} dur={C_DUR} kicker={TEXT.experience.kicker} title={TEXT.experience.s3}>
-      <UIWindow f={f} width={1320} cam={cam} fade={5}
+      <UIWindow f={f} width={WIN_W} cam={cam} fade={5}
         states={[{ src: 'sec-niveau-ajoute', at: 0 }, { src: 'sec-niveau-modale', at: fDel + 2 }, { src: 'sec-niveau-supprime-annuler', at: fConf + 3 }, { src: 'sec-niveau-restaure', at: fUndo + 3 }]}
         cursor={[{ f: 4, x: 800, y: 300 }, { f: fDel, x: del.x, y: del.y, click: true }, { f: fConf, x: conf.x, y: conf.y, click: true }, { f: fUndo, x: undo.x, y: undo.y, click: true }]} />
     </ShowcaseFrame>

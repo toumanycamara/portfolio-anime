@@ -27,17 +27,17 @@ export const DashboardReveal: React.FC = () => {
   ]);
   const tilt = (1 - prog(f, 0, 38, E.out));
   const flash = prog(f, fDash - 2, fDash + 3, E.out) * (1 - prog(f, fDash + 3, fDash + 16, E.out));
-  const winY = 170 + (1 - prog(f, 0, 30, E.out)) * 70;
+  const winY = 126 + (1 - prog(f, 0, 30, E.out)) * 70;
   return (
     <AbsoluteFill>
       <Backdrop />
-      <div style={{ position: 'absolute', left: 110, top: 36, display: 'flex', gap: 26 }}>
-        <Rise f={f} at={6} size={76}>{TEXT.reveal.l1}</Rise>
-        <Rise f={f} at={14} size={76} color={COLORS.primary}>{TEXT.reveal.l2}</Rise>
+      <div style={{ position: 'absolute', left: 180, top: 34, display: 'flex', gap: 22 }}>
+        <Rise f={f} at={6} size={66}>{TEXT.reveal.l1}</Rise>
+        <Rise f={f} at={14} size={66} color={COLORS.primary}>{TEXT.reveal.l2}</Rise>
       </div>
-      <div style={{ position: 'absolute', left: 240, top: winY, opacity: prog(f, 0, 14) }}>
+      <div style={{ position: 'absolute', left: 180, top: winY, opacity: prog(f, 0, 14) }}>
         <UIWindow
-          f={f} width={1440} fade={10} cam={cam}
+          f={f} width={1560} fade={10} cam={cam}
           tilt={{ x: 7 * tilt, y: -14 * tilt }}
           states={[
             { src: 'login-secretaire-vide', at: 0 },

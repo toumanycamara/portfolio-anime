@@ -1,6 +1,6 @@
 import React from 'react';
 import { Img, staticFile } from 'remotion';
-import { COLORS } from '../config';
+import { COLORS, ZOOM_DAMP } from '../config';
 import { Cursor, CursorKF } from './Cursor';
 
 export type State = { src: string; at: number };
@@ -21,9 +21,10 @@ export const UIWindow: React.FC<{
   const k = width / CAP_W;
   const h = width * (CAP_H / CAP_W);
   const bar = chrome ? 34 : 0;
-  const scale = k * cam.z;
+  const zEff = 1 + (cam.z - 1) * ZOOM_DAMP; // zoom atténué : l'écran reste lisible en entier
+  const scale = k * zEff;
   // la caméra reste dans la capture (jamais de zone vide)
-  const vw = CAP_W / cam.z, vh = CAP_H / cam.z;
+  const vw = CAP_W / zEff, vh = CAP_H / zEff;
   const cx = vw >= CAP_W ? CAP_W / 2 : Math.min(Math.max(cam.x, vw / 2), CAP_W - vw / 2);
   const cy = vh >= CAP_H ? CAP_H / 2 : Math.min(Math.max(cam.y, vh / 2), CAP_H - vh / 2);
   const tx = width / 2 - cx * scale;

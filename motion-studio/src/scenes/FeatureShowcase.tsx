@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, Sequence, useCurrentFrame } from 'remotion';
-import { SEC, TEXT } from '../config';
+import { SEC, TEXT, WIN_W } from '../config';
 import { Backdrop } from '../components/Backdrop';
 import { UIWindow } from '../components/UIWindow';
 import { ShowcaseFrame } from './shared';
@@ -18,7 +18,7 @@ const Appel: React.FC = () => {
   ]);
   return (
     <ShowcaseFrame f={f} dur={DUR} kicker={T.kicker} title={T.title} note={T.note}>
-      <UIWindow f={f} width={1320} cam={cam} fade={8}
+      <UIWindow f={f} width={WIN_W} cam={cam} fade={8}
         states={[{ src: 'for-presences', at: 0 }, { src: 'for-presences-modifiees', at: 46 }, { src: 'for-presences-bas', at: 82 }]}
         cursor={[{ f: 14, x: 1150, y: 300 }, { f: 42, x: 812, y: 437, click: true }, { f: 72, x: 1000, y: 540 }]} />
     </ShowcaseFrame>
@@ -34,7 +34,7 @@ const Notes: React.FC = () => {
   ]);
   return (
     <ShowcaseFrame f={f} dur={DUR} kicker={T.kicker} title={T.title} note={T.note}>
-      <UIWindow f={f} width={1320} cam={cam} fade={7}
+      <UIWindow f={f} width={WIN_W} cam={cam} fade={7}
         states={[{ src: 'for-notes-vide', at: 0 }, { src: 'for-notes-saisies', at: 18 }, { src: 'for-notes-erreur', at: 48 }, { src: 'for-notes-saisies', at: 86 }, { src: 'for-notes-bas', at: 102 }]}
         cursor={[{ f: 8, x: 1150, y: 250 }, { f: 20, x: 1035, y: 302, click: true }, { f: 44, x: 1035, y: 464, click: true }, { f: 82, x: 1035, y: 464, click: true }, { f: 110, x: 1180, y: 600 }]} />
     </ShowcaseFrame>
